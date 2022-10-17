@@ -14,9 +14,6 @@ cont = len(alunos)
 
 for i in alunos:
     alunos_novo += f'{i}'
-    while cont > 0:
-        alunos_novo += ', '
-        cont -= 1
-        break
 
+alunos_novo = ', '.join(alunos_novo)
 print(f'A ordem de apresentação será: {alunos_novo}')
