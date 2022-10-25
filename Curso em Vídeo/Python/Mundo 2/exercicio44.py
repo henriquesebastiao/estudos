@@ -6,7 +6,7 @@ Elabore um programa que calcule o valor a ser pago por um produto, considerando 
 - 3x ou mais no cartão: 20% de juros
 '''
 
-preço_normal = float(input('Digite o preço normal do produto: '))
+VALOR_NORMAL = float(input('Digite o preço normal do produto: '))
 print()
 print('Selecione a condição de pagamento:')
 print('1 - À vista dinheiro/cheque')
@@ -16,14 +16,14 @@ print('4 - ou mais no cartão')
 condição = int(input('Digite a condição de pagamento: '))
 
 if condição == 1:
-    preço_final = preço_normal * 0.9
+    preço_final = VALOR_NORMAL * 0.9
 elif condição == 2:
-    preço_final = preço_normal * 0.95
+    preço_final = VALOR_NORMAL * 0.95
 elif condição == 3:
-    preço_final = preço_normal
+    preço_final = VALOR_NORMAL
     parcelas = 2
 elif condição == 4:
-    preço_final = preço_normal * 1.2
+    preço_final = VALOR_NORMAL * 1.2
     parcelas = int(input('Digite o número de parcelas: '))
 else:
     print('Condição inválida.')
