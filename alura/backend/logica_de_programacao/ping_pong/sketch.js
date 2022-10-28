@@ -51,6 +51,9 @@ function draw() {
     alturaRaqueteOponente
   );
   movimentaRaqueteOponente();
+  
+  // Verifica se bolinha colide com raquete oponente
+  verificaColisaoRaqueteOponenteBiblioteca();
 }
 
 function movimentaBolinha() {
@@ -99,3 +102,18 @@ function verificaColisoMinhaRaqueteBiblioteca() {
     velocidadeXBolinha *= -1;
   }
 }
+
+function verificaColisaoRaqueteOponenteBiblioteca() {
+    colidiu = collideRectCircle(
+      xRaqueteOponente,
+      yRaqueteOponente,
+      comprimentoRaqueteOponente,
+      alturaRaqueteOponente,
+      xBolinha,
+      yBolinha,
+      raio
+    );
+  if (colidiu){
+    velocidadeXBolinha *= -1;
+  }
+  }
