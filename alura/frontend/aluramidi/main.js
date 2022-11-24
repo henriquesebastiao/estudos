@@ -10,8 +10,19 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
 
     // Cria lista com od ids de cada audio
     const idAudios = `#som_${listaDeTeclas[contador].classList[1]}`;
+    const teclas = listaDeTeclas[contador];
     //Reproduz o áudio
-    listaDeTeclas[contador].onclick = function (){
+    teclas.onclick = function (){
         tocaSom(idAudios);
+    }
+
+    teclas.onekeydown = function (event){
+        if (event.keyCode === 'Enter' || event.keyCode === 'Space'){
+            teclas.classList.add('ativa');
+        }
+    }
+
+    teclas.onkeyup = function (){
+        teclas.classList.remove('ativa');
     }
 }
