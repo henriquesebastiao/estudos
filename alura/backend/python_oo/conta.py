@@ -7,8 +7,9 @@ class Conta:
         self.__saldo = saldo
         self.__limite = limite
 
+    @property
     def extrato(self):
-        print(f"Saldo de {self.__saldo} do titular {self.__titular}")
+        return self.__saldo
 
     def saca(self, valor):
         self.__saldo -= valor
