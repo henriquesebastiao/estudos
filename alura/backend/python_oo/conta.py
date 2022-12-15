@@ -23,3 +23,7 @@ class Conta:
         self.saca(valor)
         destino.deposita(valor)
         print(f"Saldo de {self.__saldo} do titular {self.__titular}")
+
+    @staticmethod
+    def codigo_banco():
+        return "001"
