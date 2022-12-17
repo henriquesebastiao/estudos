@@ -12,7 +12,6 @@ def eInvalido(valor):
 
 
 passou = True
-invalidos = []
 
 while passou:
     print("REQUISITOS:")
@@ -24,63 +23,67 @@ Sexo: 'f' ou 'm'
 Estado Civil: 's', 'c', 'v', 'd'
     """)
 
-    nome = input("Informe um nome: ")
-    if len(nome) < 3:
-        passou = False
-        invalidos.append("Nome")
-
-        eInvalido("NOME")
-
-    idade = input("Informe a idade: ")
-    if idade.isnumeric():
-        idade = int(idade)
-        if idade < 0 or idade > 150:
+    while True:
+        nome = input("Informe um nome: ")
+        if len(nome) < 3:
             passou = False
-            invalidos.append("Idade")
+
+            eInvalido("NOME")
+            print("Tente novamente!")
+        else:
+            break
+
+    while True:
+        idade = input("Informe a idade: ")
+        if idade.isnumeric():
+            idade = int(idade)
+            if idade < 0 or idade > 150:
+                passou = False
+
+                eInvalido("IDADE")
+                print("Tente novamente!")
+            else:
+                break
+        else:
+            passou = False
 
             eInvalido("IDADE")
-    else:
-        passou = False
-        invalidos.append("Idade")
+            print("Tente novamente!")
 
-        eInvalido("IDADE")
+    while True:
+        salario = input("Informe o salário: ")
+        try:
+            salario = float(salario)
+            if salario < 0:
+                passou = False
 
-    salario = input("Informe o salário: ")
-    try:
-        salario = float(salario)
-        if salario < 0:
+                eInvalido("SALARIO")
+                print("Tente novamente!")
+            else:
+                break
+        except:
             passou = False
-            invalidos.append("Salario")
 
             eInvalido("SALARIO")
-    except:
-        passou = False
-        invalidos.append("Salario")
+            print("Tente novamente!")
 
-        eInvalido("SALARIO")
+    while True:
+        sexo = input("Informe o sexo: ").upper()
+        if sexo != "F" and sexo != "M":
+            passou = False
 
-    sexo = input("Informe o sexo: ").upper()
-    if sexo != "F" and sexo != "M":
-        passou = False
-        invalidos.append("Sexo")
+            eInvalido("SEXO")
+            print("Tente novamente!")
+        else:
+            break
 
-        eInvalido("SEXO")
+    while True:
+        estados = ["S", "C", "V", "D"]
+        estado_civil = input("Informe o estado civil: ").upper()
+        if estado_civil not in estados:
+            passou = False
 
-    estados = ["S", "C", "V", "D"]
-    estado_civil = input("Informe o estado civil: ").upper()
-    if estado_civil not in estados:
-        passou = False
-        invalidos.append("ESTADO CIVIL")
-
-        eInvalido("Estado Civil")
-
-    if not passou:
-        print()
-        print("Os seguintes valores informados são inválidos:")
-        for item in invalidos:
-            print(item)
-
-    if passou:
-        print()
-        print("Todos os valores foram aceitos com sucesso!")
-        break
+            eInvalido("ESTADO CIVIL")
+            print("Tente Novamente!")
+        else:
+            break
